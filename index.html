@@ -8,7 +8,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans
 main{max-width:720px;margin:0 auto;padding:24px 16px 48px}
 nav a{color:var(--ac);margin-right:14px} h2{margin-top:36px} footer{color:var(--dim);font-size:13px;margin-top:40px}
 </style></head><body><main>
-<nav><a href="#cs">Česky</a><a href="#en">English</a><a href="#de">Deutsch</a></nav>
+<nav><a href="#cs">Česky</a><a href="#en">English</a><a href="#de">Deutsch</a><a href="#pl">Polski</a></nav>
 <section lang="cs" id="cs">
 <h2>Zásady ochrany soukromí – Aspice</h2>
 <p>Aspice nemá uživatelské účty ani reklamy. Vývojář aplikace žádné osobní údaje neshromažďuje, neukládá, neprodává ani nesdílí.</p>
@@ -17,7 +17,11 @@ nav a{color:var(--ac);margin-right:14px} h2{margin-top:36px} footer{color:var(--
 <p>Mapová data: při načítání míst aplikace posílá veřejným serverům OpenStreetMap (Overpass API) výřez mapy okolo vás (obdélník zhruba 5 × 5 km). Hledání „Kde je…?“ posílá hledaný text a přibližnou oblast službě OpenStreetMap Nominatim.</p>
 <p>Podrobnosti o místech: když místo otevřete, jeho název, identifikátory a souřadnice se pošlou Wikipedii, Wikidatům a Wikimedia Commons kvůli článku a fotkám.</p>
 <p>Překlad: texty se překládají v telefonu (Google ML Kit). Poprvé se od Googlu stáhne jazykový balíček; samotné texty se nikam neposílají. Knihovna ML Kit přitom odesílá Googlu diagnostické údaje (model a systém telefonu, verze aplikace, identifikátor instalace, zvolené jazyky a údaje o výkonu) kvůli spolehlivosti služby. Google je podle svých podmínek nepředává třetím stranám.</p>
-<p>V telefonu se ukládá: nastavení (včetně telefonního čísla kontaktu pro nouzi, pokud ho zadáte), zaškrtnutá místa a stažené čtverce mapy. Nastavení a zaškrtnutá místa mohou být součástí zálohy telefonu do vašeho účtu Google; čtverce mapy ne. Odinstalováním aplikace se vše smaže.</p>
+<p>V telefonu se ukládá: nastavení (včetně telefonního čísla kontaktu pro nouzi, pokud ho zadáte), zaškrtnutá místa, deník navštívených míst, souhrny túr a stažené čtverce mapy. Nastavení, zaškrtnutá místa, deník a túry mohou být součástí zálohy telefonu do vašeho účtu Google; čtverce mapy ne. Odinstalováním aplikace se vše smaže.</p>
+<p>Túra: jen když stisknete „Začít túru“, používá aplikace polohu i na pozadí (se zhasnutým displejem), dokud túru neukončíte; po celou dobu je vidět oznámení. Trasa se nikam neposílá, v telefonu zůstane jen souhrn (vzdálenost, čas, nastoupané metry).</p>
+<p>Deník: místa, ke kterým dojdete, se zapisují jen do telefonu.</p>
+<p>Hlasový výstup: texty čte převod textu na řeč nainstalovaný v telefonu; podle jeho nastavení může používat hlas přes internet.</p>
+<p>Nastavení na dálku: aplikace si zhruba jednou za 6 hodin stáhne z aspice.cz soubor s nastavením (oznámení, zapnuté funkce). Neposílá se přitom nic o vás; server vidí jen IP adresu jako u každé webové stránky a hosting ji může krátce uchovávat v běžných záznamech o přístupech.</p>
 <p>Uvedené služby mají vlastní zásady ochrany soukromí (OpenStreetMap Foundation, Wikimedia Foundation, Google).</p>
 <p>Kontakt: <a href="mailto:info@aspice.cz">info@aspice.cz</a> · <a href="https://aspice.cz">aspice.cz</a></p>
 </section>
@@ -29,7 +33,11 @@ nav a{color:var(--ac);margin-right:14px} h2{margin-top:36px} footer{color:var(--
 <p>Map data: to load places, the app sends the map area around you (a rectangle of roughly 5 × 5 km) to public OpenStreetMap servers (Overpass API). The “Where is…?” search sends your query and the approximate area to OpenStreetMap Nominatim.</p>
 <p>Place details: when you open a place, its name, identifiers and coordinates are sent to Wikipedia, Wikidata and Wikimedia Commons to get the article and photos.</p>
 <p>Translation: texts are translated in the phone (Google ML Kit). The first time, a language pack is downloaded from Google; the texts themselves are not sent anywhere. The ML Kit library does send Google diagnostic data (phone model and system, app version, an installation identifier, the selected languages and performance data) to keep the service reliable. According to Google, this data is not passed to third parties.</p>
-<p>Stored in the phone: settings (including the emergency contact phone number, if you enter one), ticked places and downloaded map squares. Settings and ticked places may be included in your phone&#x27;s own Google backup; map squares are not. Uninstalling the app deletes everything.</p>
+<p>Stored in the phone: settings (including the emergency contact phone number, if you enter one), ticked places, the diary of visited places, hike summaries and downloaded map squares. Settings, ticked places, the diary and hikes may be included in your phone&#x27;s own Google backup; map squares are not. Uninstalling the app deletes everything.</p>
+<p>Hike: only after you press “Start hike” does the app use your location in the background (with the screen off) until you end the hike; a notification is visible the whole time. The route is not sent anywhere; only a summary (distance, time, ascent) stays in the phone.</p>
+<p>Diary: places you reach are recorded only in the phone.</p>
+<p>Voice output: texts are read by the text-to-speech engine installed in your phone; depending on its settings it may use an online voice.</p>
+<p>Remote settings: about every 6 hours the app downloads a settings file from aspice.cz (announcements, enabled features). Nothing about you is sent; the server only sees your IP address, as with any web page, and the hosting may keep it briefly in ordinary access logs.</p>
 <p>These services have their own privacy policies (OpenStreetMap Foundation, Wikimedia Foundation, Google).</p>
 <p>Contact: <a href="mailto:info@aspice.cz">info@aspice.cz</a> · <a href="https://aspice.cz">aspice.cz</a></p>
 </section>
@@ -41,9 +49,29 @@ nav a{color:var(--ac);margin-right:14px} h2{margin-top:36px} footer{color:var(--
 <p>Kartendaten: Zum Laden der Orte sendet die App den Kartenausschnitt um Sie herum (ein Rechteck von etwa 5 × 5 km) an öffentliche OpenStreetMap-Server (Overpass API). Die Suche „Wo ist…?“ sendet den Suchbegriff und den ungefähren Bereich an OpenStreetMap Nominatim.</p>
 <p>Details zu Orten: Wenn Sie einen Ort öffnen, werden sein Name, seine Kennungen und Koordinaten an Wikipedia, Wikidata und Wikimedia Commons gesendet, um Artikel und Fotos zu erhalten.</p>
 <p>Übersetzung: Texte werden im Telefon übersetzt (Google ML Kit). Beim ersten Mal wird ein Sprachpaket von Google geladen; die Texte selbst werden nirgendwohin gesendet. Die Bibliothek ML Kit sendet dabei Diagnosedaten an Google (Modell und System des Telefons, App-Version, eine Installationskennung, die gewählten Sprachen und Leistungsdaten), um den Dienst zuverlässig zu halten. Laut Google werden diese Daten nicht an Dritte weitergegeben.</p>
-<p>Im Telefon gespeichert: Einstellungen (einschließlich der Telefonnummer des Notfallkontakts, falls Sie eine eingeben), angehakte Orte und geladene Kartenquadrate. Einstellungen und angehakte Orte können Teil der Google-Sicherung Ihres Telefons sein, Kartenquadrate nicht. Beim Deinstallieren wird alles gelöscht.</p>
+<p>Im Telefon gespeichert: Einstellungen (einschließlich der Telefonnummer des Notfallkontakts, falls Sie eine eingeben), angehakte Orte, das Tagebuch besuchter Orte, Zusammenfassungen von Wanderungen und geladene Kartenquadrate. Einstellungen, angehakte Orte, Tagebuch und Wanderungen können Teil der Google-Sicherung Ihres Telefons sein, Kartenquadrate nicht. Beim Deinstallieren wird alles gelöscht.</p>
+<p>Wanderung: Nur nachdem Sie „Wanderung starten“ gedrückt haben, nutzt die App Ihren Standort auch im Hintergrund (bei ausgeschaltetem Bildschirm), bis Sie die Wanderung beenden; die ganze Zeit ist eine Benachrichtigung sichtbar. Die Route wird nirgendwohin gesendet; im Telefon bleibt nur eine Zusammenfassung (Strecke, Zeit, Aufstieg).</p>
+<p>Tagebuch: Orte, die Sie erreichen, werden nur im Telefon gespeichert.</p>
+<p>Sprachausgabe: Texte werden von der im Telefon installierten Sprachausgabe vorgelesen; je nach deren Einstellungen kann sie eine Online-Stimme nutzen.</p>
+<p>Einstellungen aus der Ferne: Etwa alle 6 Stunden lädt die App eine Einstellungsdatei von aspice.cz (Ankündigungen, aktivierte Funktionen). Dabei wird nichts über Sie gesendet; der Server sieht nur Ihre IP-Adresse wie bei jeder Webseite, und der Hoster kann sie kurz in üblichen Zugriffsprotokollen speichern.</p>
 <p>Diese Dienste haben eigene Datenschutzerklärungen (OpenStreetMap Foundation, Wikimedia Foundation, Google).</p>
 <p>Kontakt: <a href="mailto:info@aspice.cz">info@aspice.cz</a> · <a href="https://aspice.cz">aspice.cz</a></p>
 </section>
-<footer>Platné od / Effective / Gültig ab: 2026-10-01</footer>
+<section lang="pl" id="pl">
+<h2>Polityka prywatności – Aspice</h2>
+<p>Aspice nie ma kont użytkowników ani reklam. Autor nie zbiera, nie przechowuje, nie sprzedaje ani nie udostępnia żadnych danych osobowych.</p>
+<p>Lokalizacja: twoja dokładna lokalizacja jest używana wyłącznie w telefonie do obliczenia kierunku i odległości. Nie jest zapisywana na żadnym serwerze.</p>
+<p>Moja lokalizacja i SOS: aplikacja nigdy niczego nie wysyła sama. Połączenie z 112 lub SMS z lokalizacją zawsze otwierasz i potwierdzasz ty w telefonie lub aplikacji do wiadomości.</p>
+<p>Dane mapy: aby wczytać miejsca, aplikacja wysyła fragment mapy wokół ciebie (prostokąt ok. 5 × 5 km) do publicznych serwerów OpenStreetMap (Overpass API). Wyszukiwanie „Gdzie jest…?” wysyła zapytanie i przybliżony obszar do OpenStreetMap Nominatim.</p>
+<p>Szczegóły miejsc: gdy otwierasz miejsce, jego nazwa, identyfikatory i współrzędne są wysyłane do Wikipedii, Wikidanych i Wikimedia Commons, aby pobrać artykuł i zdjęcia.</p>
+<p>Tłumaczenie: teksty są tłumaczone w telefonie (Google ML Kit). Za pierwszym razem pakiet językowy pobierany jest od Google; same teksty nie są nigdzie wysyłane. Biblioteka ML Kit wysyła do Google dane diagnostyczne (model i system telefonu, wersję aplikacji, identyfikator instalacji, wybrane języki i dane o wydajności), aby usługa działała niezawodnie. Według Google dane te nie są przekazywane stronom trzecim.</p>
+<p>Zapisane w telefonie: ustawienia (w tym numer kontaktu alarmowego, jeśli go wpiszesz), zaznaczone miejsca, dziennik odwiedzonych miejsc, podsumowania wędrówek i pobrane kwadraty mapy. Ustawienia, zaznaczone miejsca, dziennik i wędrówki mogą trafić do kopii zapasowej Google twojego telefonu; kwadraty mapy nie. Odinstalowanie aplikacji usuwa wszystko.</p>
+<p>Wędrówka: dopiero po naciśnięciu „Rozpocznij wędrówkę” aplikacja używa lokalizacji także w tle (przy wyłączonym ekranie), dopóki nie zakończysz wędrówki; przez cały czas widoczne jest powiadomienie. Trasa nie jest nigdzie wysyłana; w telefonie zostaje tylko podsumowanie (dystans, czas, podejście).</p>
+<p>Dziennik: miejsca, do których dotrzesz, zapisują się tylko w telefonie.</p>
+<p>Komunikaty głosowe: teksty czyta synteza mowy zainstalowana w telefonie; zależnie od jej ustawień może używać głosu online.</p>
+<p>Ustawienia zdalne: mniej więcej co 6 godzin aplikacja pobiera z aspice.cz plik z ustawieniami (ogłoszenia, włączone funkcje). Nic o tobie nie jest wysyłane; serwer widzi tylko adres IP, jak przy każdej stronie internetowej, a hosting może go krótko przechowywać w zwykłych logach dostępu.</p>
+<p>Te usługi mają własne polityki prywatności (OpenStreetMap Foundation, Wikimedia Foundation, Google).</p>
+<p>Kontakt: <a href="mailto:info@aspice.cz">info@aspice.cz</a> · <a href="https://aspice.cz">aspice.cz</a></p>
+</section>
+<footer>Platné od / Effective / Gültig ab / Obowiązuje od: 2026-10-06</footer>
 </main></body></html>
